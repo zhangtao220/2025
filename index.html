@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example Academic Website</title>
+    <title>Academic Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,6 +55,14 @@
             padding: 10px 0;
             margin-top: 20px;
         }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -65,31 +73,39 @@
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
+        <a href="#team">Team</a>
         <a href="#contact">Contact</a>
     </div>
 
     <!-- Content -->
     <div class="content">
+        <!-- Home Section -->
         <div class="section" id="home">
             <h1>Welcome to My Academic Website</h1>
-            <p>This is a placeholder academic website created as an example. Feel free to replace this content with your own.</p>
+            <p>This is a placeholder academic website. Replace this content with your own to showcase your research, team, and achievements.</p>
         </div>
 
+        <!-- About Section -->
         <div class="section" id="about">
             <h2>About</h2>
             <p>I am a researcher specializing in [Your Field of Study]. My work focuses on exploring new methodologies and pushing the boundaries of [Your Topic].</p>
         </div>
 
+        <!-- Research Section -->
         <div class="section" id="research">
             <h2>Research</h2>
             <p>My current research projects include:</p>
-            <ul>
-                <li>Project 1: Description of the project.</li>
-                <li>Project 2: Description of the project.</li>
-                <li>Project 3: Description of the project.</li>
-            </ul>
+            <div class="card">
+                <h3>Project 1</h3>
+                <p>Description of the project, its goals, and potential impact.</p>
+            </div>
+            <div class="card">
+                <h3>Project 2</h3>
+                <p>Description of the project, its goals, and potential impact.</p>
+            </div>
         </div>
 
+        <!-- Publications Section -->
         <div class="section" id="publications">
             <h2>Publications</h2>
             <p>Here is a selection of my recent publications:</p>
@@ -100,6 +116,21 @@
             </ul>
         </div>
 
+        <!-- Team Section -->
+        <div class="section" id="team">
+            <h2>Team</h2>
+            <p>Meet the members of our research team:</p>
+            <div class="card">
+                <h3>Dr. John Doe</h3>
+                <p>Specialist in computational mathematics and AI.</p>
+            </div>
+            <div class="card">
+                <h3>Dr. Jane Smith</h3>
+                <p>Focus on data analysis and network theory.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
         <div class="section" id="contact">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
