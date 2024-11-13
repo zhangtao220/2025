@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Academic Website</title>
+    <title>Toggle Sections</title>
     <style>
         /* General styles */
         body {
@@ -53,11 +53,11 @@
         /* Content sections */
         .content {
             padding: 100px 20px; /* Leave space for fixed navbar */
+            display: none; /* Initially hide all sections */
         }
 
-        .section {
-            margin-bottom: 100px;
-            padding: 50px 20px;
+        .content.active {
+            display: block; /* Show only active section */
         }
 
         h1, h2 {
@@ -79,58 +79,51 @@
 <body>
 
     <!-- Navigation bar -->
-    <div class="navbar" id="navbar">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
+    <div class="navbar">
+        <a href="#about" data-section="about">About</a>
+        <a href="#research" data-section="research">Research</a>
+        <a href="#publications" data-section="publications">Publications</a>
+        <a href="#team" data-section="team">Team</a>
+        <a href="#contact" data-section="contact">Contact</a>
     </div>
 
     <!-- Content -->
-    <div class="content">
-        <!-- About Section -->
-        <div class="section" id="about">
-            <h1>About</h1>
-            <p class="highlight">I am a researcher specializing in [Your Field of Study]. My work focuses on exploring new methodologies and pushing the boundaries of [Your Topic].</p>
-        </div>
+    <div class="content" id="about">
+        <h1>About</h1>
+        <p class="highlight">I am a researcher specializing in [Your Field of Study]. My work focuses on exploring new methodologies and pushing the boundaries of [Your Topic].</p>
+    </div>
 
-        <!-- Research Section -->
-        <div class="section" id="research">
-            <h2>Research</h2>
-            <p>My current research projects include:</p>
-            <ul>
-                <li>Project 1: Description of the project.</li>
-                <li>Project 2: Description of the project.</li>
-                <li>Project 3: Description of the project.</li>
-            </ul>
-        </div>
+    <div class="content" id="research">
+        <h2>Research</h2>
+        <p>My current research projects include:</p>
+        <ul>
+            <li>Project 1: Description of the project.</li>
+            <li>Project 2: Description of the project.</li>
+            <li>Project 3: Description of the project.</li>
+        </ul>
+    </div>
 
-        <!-- Publications Section -->
-        <div class="section" id="publications">
-            <h2>Publications</h2>
-            <ul>
-                <li>Publication 1: <a href="#">Link to publication</a></li>
-                <li>Publication 2: <a href="#">Link to publication</a></li>
-                <li>Publication 3: <a href="#">Link to publication</a></li>
-            </ul>
-        </div>
+    <div class="content" id="publications">
+        <h2>Publications</h2>
+        <ul>
+            <li>Publication 1: <a href="#">Link to publication</a></li>
+            <li>Publication 2: <a href="#">Link to publication</a></li>
+            <li>Publication 3: <a href="#">Link to publication</a></li>
+        </ul>
+    </div>
 
-        <!-- Team Section -->
-        <div class="section" id="team">
-            <h2>Team</h2>
-            <p>Meet the members of our research team:</p>
-            <ul>
-                <li>Dr. John Doe - Specialist in computational mathematics and AI.</li>
-                <li>Dr. Jane Smith - Focus on data analysis and network theory.</li>
-            </ul>
-        </div>
+    <div class="content" id="team">
+        <h2>Team</h2>
+        <p>Meet the members of our research team:</p>
+        <ul>
+            <li>Dr. John Doe - Specialist in computational mathematics and AI.</li>
+            <li>Dr. Jane Smith - Focus on data analysis and network theory.</li>
+        </ul>
+    </div>
 
-        <!-- Contact Section -->
-        <div class="section" id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
-        </div>
+    <div class="content" id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
     </div>
 
     <!-- Footer -->
@@ -138,31 +131,33 @@
         <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for dynamic navigation -->
+    <!-- JavaScript for toggling sections -->
     <script>
-        // Highlight the current section in the navigation bar
-        const sections = document.querySelectorAll('.section');
+        // Select all navigation links and content sections
         const navLinks = document.querySelectorAll('.navbar a');
+        const sections = document.querySelectorAll('.content');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
+        // Add click event listeners to navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault(); // Prevent default anchor behavior
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
+                // Remove active class from all links and sections
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
 
-                if (pageYOffset >= sectionTop - 60) { // Adjust for fixed navbar height
-                    current = section.getAttribute('id');
-                }
-            });
+                // Add active class to the clicked link
+                link.classList.add('active');
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+                // Show the corresponding section
+                const targetSection = document.getElementById(link.dataset.section);
+                targetSection.classList.add('active');
             });
         });
+
+        // Show the first section by default
+        document.getElementById('about').classList.add('active');
+        navLinks[0].classList.add('active');
     </script>
 
 </body>
