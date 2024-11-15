@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Section Page</title>
+    <title>Seminar</title>
     <style>
         /* General styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #F9FAFB;
+            color: #333;
         }
 
-        /* Navigation bar - Fixed to the top */
+        /* Navigation Bar */
         .navbar {
-            background-color: #2c3e50;
+            background-color: #000; /* Black background */
             position: fixed;
             top: 0;
             left: 0;
@@ -22,1337 +24,353 @@
             display: flex;
             justify-content: center;
             z-index: 1000;
-            padding: 10px 0;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            padding: 10px 15px;
+            padding: 15px 20px;
             display: block;
         }
 
         .navbar a:hover, .navbar a.active {
-            background-color: #1abc9c;
+            background-color: #8b0000; /* Academic blue for highlight */
             border-radius: 5px;
         }
 
-        /* Footer - Fixed to the bottom */
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #2c3e50;
-            color: white;
+
+     /* Gray background#E8E8E8;Academic blue 0056B3 */
+    /* Deep red to bright red gradient  #8b0000, #ff4500*/ 
+
+        /* Header Section */
+  .header {
+           background: linear-gradient(to right,  #7d7d7d, #d3d3d3); /* Deep red to */  
+            padding: 80px 20px 40px;
             text-align: center;
-            padding: 10px 0;
+            margin-top: 50px; /* Offset for navbar height */
         }
 
-        /* Content sections */
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color:#fff ;    /*  #2C3E50 */
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+
+
+
+
+
+        
+        /* Info Section */
+        .info {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .info span {
+            font-weight: bold;
+            color: #2C3E50;
+        }
+
+        /* Divider */
+        .divider {
+            width: 100%;
+            border-top: 1px solid #ddd;
+            margin: 30px 0;
+        }
+
+
+
+        
+        /* Schedule Section */
+
+/* styles.css */
+
+.schedule {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.seminar-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seminar-item {
+    background-color: #fff;
+    border: 1px solid #000; /* Black fine line as border */
+    border-left: 5px solid #000; /* Slightly thicker black line on the left */
+    padding: 15px;
+    margin: 10px 0;
+    width: 80%; /* Adjusted to 80% of the parent container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.seminar-item h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.seminar-item p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.seminar-item span {
+    font-weight: bold;
+    color: #555;
+}
+
+
+        
+
+        /* Sections (hidden by default) */
         .content {
-            padding: 100px 20px; /* Leave space for fixed navbar */
-            display: none; /* Initially hide all sections */
+            padding-top: 20px;
+            display: none;
         }
 
         .content.active {
-            display: block; /* Show only active section */
+            display: block;
         }
+        
 
-        h1, h2 {
-            color: #2c3e50;
-        }
 
-        h1 {
-            border-bottom: 2px solid #1abc9c;
-            padding-bottom: 10px;
-        }
 
-        .highlight {
-            border-left: 4px solid #1abc9c;
-            padding-left: 10px;
-            background-color: #f9f9f9;
-        }
+        
+        
     </style>
 </head>
 <body>
-
-    <!-- Navigation bar -->
+    <!-- Navigation Bar -->
     <div class="navbar">
-        <a href="#about" data-section="about">About</a>
-        <a href="#research" data-section="research">Research</a>
-        <a href="#publications" data-section="publications">Publications</a>
-        <a href="#team" data-section="team">Team</a>
-        <a href="#contact" data-section="contact">Contact</a>
+        <a href="#home" class="active" onclick="showSection('home')">Home</a>
+        <a href="#past" onclick="showSection('past')">Past Seminar</a>
+        <a href="#contact" onclick="showSection('contact')">Contact</a>
     </div>
 
-    <!-- Content -->
-    <div class="content" id="about">
-        <h1> Tao Zhang (张韬)  </h1>
-        <p class="highlight">I am a researcher specializing in iscrete geometry, extremal combinatorics, coding theory and designs.</p>
-   
+    <!-- Home Section -->
+    <div class="content active" id="home">
+        <div class="header">
+            <h1>Combinatorics, Information Theory & Related Topics Seminar</h1>
+            <p>In addition to the research seminar, we will also be organizing a learning seminar in various topics for graduate students interested in Analysis & PDEs.</p>
+        </div>
 
-<h2>Professional Experiences</h2>
-    <p>
-    Xidian University,   2024.2-- <br>
-	Professor
-    </p>
-    <p>
-    Zhejiang Lab,   2022.7--2024.1 <br>
-	   Research Expert
-    </p>
-    <p>
-    Guangzhou University,   2017.7--2022.6 <br>
-	    Associate Professor
-    </p>
-    <h2>Education</h2>
-	 <p>
-    Zhejiang University， 2012.9--2017.6 <br>
-	   Ph.D. in Mathematics (Advisor: <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Prof. Gennian Ge</a>)
-    </p>
+        <div class="info">
+            <p><span>Organizers:</span> Ioakeim Ampatzoglou, Dan Ginsberg, Weilin Li, Vincent Martinez, Azita Mayeli</p>
+            <p><span>Time:</span> Friday, 10:00am-11:00am EST</p>
+            <p><span>Location:</span> GC 9116 (in-person only)</p>
+        </div>
 
-
- </div>
+        <div class="divider"></div>
 
 
 
+        
+<div class="schedule">Schedule (2024)</div>
 
+<div class="seminar-list">
+    <div class="seminar-item">
+        <h3>Title of Seminar 1</h3>
+        <p><span>Date:</span> January 12, 2024</p>
+        <p><span>Speaker:</span> Dr. A</p>
+        <p><span>Date:</span> January 12, 2024</p>
+        <p><span>Speaker:</span> Dr. A</p>
+    </div>
+    <div class="seminar-item">
+        <h3>Title of Seminar 2</h3>
+        <p><span>Date:</span> February 23, 2024</p>
+        <p><span>Speaker:</span> Prof. B</p>
+    </div>
+    <div class="seminar-item">
+        <h3>Title of Seminar 3</h3>
+        <p><span>Date:</span> March 15, 2024</p>
+        <p><span>Speaker:</span> Dr. C</p>
+    </div>
+</div>
+
+    </div>
+
+
+
+
+
+    <!-- Past Seminar Section -->
+<div class="content" id="past">
+    <div class="header">
+        <h1>Past Seminars</h1>
+        <p>Explore the seminars we organized in 2023 and earlier.</p>
+    </div>
     
-    <div class="content" id="research">
-        <h2>Research</h2>
-        <p>My current research projects include:</p>
-       <h2>Honours and Awards</h2>
-	<ul>
-            <li>2019 Kirkman Medal</li>
-            <li>2019 The Honorable Mention of Doctor thesis for New World Mathematics Awards</li>
-            <li>2018 The Excellent Doctor Dissertations of Zhejiang Province</li>
-	   <li>2018 The Nomination Award for Excellent Doctor Dissertations of Zhejiang University<li>
-           <li>2015 Scholarship for Doctoral Student by State Key Laboratory of Information Security<li>
-           <li>2015 National Scholarship for Outstanding Doctoral Student by the Ministry of Education in China<li>
-        </ul>
-
-	
-      
+ <div class="divider"></div>
     
+    <div class="accordion">
+        <!-- 2023 Section -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                2023 Seminars
+            </div>
+            <div class="accordion-content">
+                <p><strong>Title:</strong> Seminar A</p>
+                <p><strong>Date:</strong> January 15, 2023</p>
+                <p><strong>Speaker:</strong> Dr. X</p>
+                <hr>
+                <p><strong>Title:</strong> Seminar B</p>
+                <p><strong>Date:</strong> April 12, 2023</p>
+                <p><strong>Speaker:</strong> Prof. Y</p>
+                <hr>
+                <p><strong>Title:</strong> Seminar C</p>
+                <p><strong>Date:</strong> July 22, 2023</p>
+                <p><strong>Speaker:</strong> Dr. Z</p>
+            </div>
+        </div>
+
+        <!-- 2022 Section -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                2022 Seminars
+            </div>
+            <div class="accordion-content">
+                <p><strong>Title:</strong> Seminar D</p>
+                <p><strong>Date:</strong> March 5, 2022</p>
+                <p><strong>Speaker:</strong> Dr. W</p>
+                <hr>
+                <p><strong>Title:</strong> Seminar E</p>
+                <p><strong>Date:</strong> October 20, 2022</p>
+                <p><strong>Speaker:</strong> Prof. V</p>
+            </div>
+        </div>
     </div>
-
-
-
-
-
-	
-    <div class="content" id="publications">
-        <h2>Publications</h2>
-
-<div class="items">      
-        <article class="item">   
-<h4>35. Classification of semi-regular relative difference sets with gcd(λ, n) = 1 attaining Turyn’s bound</h4>
-		    <span>
-      (with  
-        Ka Hin Leung,
-	Bernhard Schmidt,
-    </span>
-  <p>
-  <div class="item__primary-actions">
-     Designs, Codes and Cryptography, 2024+
-</div>
-  </p>
-  <p class="item__secondary-actions">   
-  </p>
-</article>
-
-<div class="items">      
-        <article class="item">   
-<h4>34. A polynomial resultant approach to algebraic construction of extremal graphs</h4>
-    <span>
-      (with  
-	    <a href="https://drrichxu.github.io/Combinatorics/" target="_blank">Zixiang Xu</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-    <h4>Science China Mathematics, 2024+</h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-<div class="items">      
-        <article class="item">   
-<h4>33. A group ring approach to Fuglede's conjecture in cyclic groups</h4>
-  <p>
-  <div class="item__primary-actions">
-  <h4>Combinatorica, 2024+</h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-<div class="items">      
-        <article class="item">   
-<h4>32. On linear diameter perfect Lee codes with distance 6</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>Journal of Combinatorial Theory, Series A, 2024  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-<div class="items">      
-        <article class="item">   
-<h4>31. On lattice tilings of Z^n by limited magnitude error balls B(n,2,1,1)</h4>
-    <span>
-      (with  
-	  Yanlu Lian,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-    <h4>IEEE Transactions on Information Theory, 2023  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
- <div class="items">      
-        <article class="item">    
-<h4>30. New lower bounds for the Turan density of PG_{m}(q)</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Discrete Mathematics, 2023  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>29. Fuglede’s conjecture holds in Zp × Zpn</h4>
-  <p>
-  <div class="item__primary-actions">
-    <h4> SIAM Journal on Discrete Mathematics, 2023</h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>28. On the nonexistence of semi-regular relative difference sets</h4>
-		    <span>
-      (with  
-        Ka Hin Leung,
-	Bernhard Schmidt,
-    </span>
-  <p>
-  <div class="item__primary-actions">
- <h4>Journal of Combinatorial Theory, Series A, 2023 <span><a href="On the nonexistence of semi-regular relative difference sets（online）.pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">   
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>27. New constructions of Sidon spaces</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Journal of Algebraic Combinatorics, 2022+ <span><a href="New constructions of Sidon spaces（online）.pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>26. Some extremal results on hypergraph Turan problems</h4>
-    <span>
-      (with  
-	    <a href="https://drrichxu.github.io/Combinatorics/" target="_blank">Zixiang Xu</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>Science China Mathematics, 2022+ <span><a href="Some extremal results on hypergraph Turán problems (online).pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>25. On the codegree density of PGm(q)</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>SIAM Journal on Discrete Mathematics, 2021 <span><a href="On the Codegree Density of $PG_m(q)$ (SIDMA).pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>24. Color isomorphic even cycles and a related Ramsey problem</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-	    <a href="https://yifanjing.wordpress.com/" target="_blank">Yifan Jing</a>,
-	    <a href="https://drrichxu.github.io/Combinatorics/" target="_blank">Zixiang Xu</a>,
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>SIAM Journal on Discrete Mathematics, 2020 <span><a href="Color isomorphic even cycles and a related Ramsey problem (SIDMA).pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
-<h4>23. Some tight lower bounds for Turan problems via constructions of multi-hypergraphs</h4>
-    <span>
-      (with  
-	    <a href="https://drrichxu.github.io/Combinatorics/" target="_blank">Zixiang Xu</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  European Journal of Combinatorics, 2020 <span><a href="Some tight lower bounds for Turán problems via constructions of multi-hypergraphs (EUJC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
-<h4>22. Some New Results on Splitter Sets</h4>
-    <span>
-      (with  
-	    Zuo ye,
-	    <a href="http://staff.ustc.edu.cn/~drzhangx/" target="_blank">Xiande Zhang</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-    <h4>IEEE Transcations on Information theory, 2020 <span><a href="2020+   Some New Results on Splitter Sets (Online).pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>21. New lower bounds for partial k-parallelisms</h4> 
-    <span>
-      (with  					 
-       Yue Zhou,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Journal of Combinatorial Designs, Jan. 2020. <span><a href="2020-01 New lower bounds for partial k-parallelism (JCD).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>20. On the nonexistence of lattice tilings of Z^n by Lee spheres</h4> 
-    <span>
-      (with  					 
-       Yue Zhou,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>Journal of combinatorial theory, series A, Jul. 2019. <span><a href="2019-07 On the nonexistence of lattice tilings of Z^n by Lee spheres (JCTA).pdf" target="_blank">PDF</a></span></h4>   
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>19. Improved lower bounds on the degree-diameter problem</h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  Journal of Algebraic Combinatorics, Mar. 2019. <span><a href="2019-03 Improved lower bounds on the degree–diameter problem (JACO).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>18. Constructions of optimal Ferrers diagram rank metric codes</h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Designs, Codes and Cryptography, 2019. <span><a href="2019-01 Constructions of optimal Ferrers diagram rank metric codes (DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>17. On (mn,n,mn,m) relative difference sets with gcd(m,n)=1</h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-    Journal of Algebraic Combinatorics, Dec. 2018. <span><a href="2018-12 On (mn, n, mn, m) relative difference sets with   gcd(m,n)=1 (JACO).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>16. On the Nonexistence of Perfect Splitter Sets</h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>IEEE Transcations on Information theory, Oct. 2018. <span><a href="2018-10 On the Nonexistence of Perfect Splitter Sets (IT).pdf" target="_blank">PDF</a></span>  </h4> 
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>15. New Constructions of MDS Symbol-Pair Codes</h4> 
-    <span>
-      (with
-	Baokun Ding,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-	Jun Zhang,
-	Yiwei Zhang,
-    </span>
-  <p>
-  <div class="item__primary-actions">
-Designs, Codes and Cryptography, 2018. <span><a href="2018-04 New constructions of MDS symbol-pair codes (DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-   
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>14. Combinatorial constructions of packings in Grassmannian spaces</h4> 
-    <span>
-      (with   
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Designs, Codes and Cryptography, 2018. <span><a href="2018-04 Combinatorial constructions of packings in Grassmannian spaces (DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>13. Maximum Distance Separable Codes for b-Symbol Read Channels</h4> 
-    <span>
-      (with  
-	Baokun Ding,   
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  Finite Fields and Their Applications, Jan. 2018. <span><a href="2018-01 Maximum distance separable codes for b-symbol read channels （FFA）.pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>12. Splitter Sets and k -Radius Sequences</h4> 
-    <span>
-      (with  
-	<a href="http://staff.ustc.edu.cn/~drzhangx/" target="_blank">Xiande Zhang</a>,    
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>IEEE Transcations on Information theory, Dec. 2017. <span><a href="2017-12 Splitter Sets and k -Radius Sequences (IT).pdf" target="_blank">PDF</a></span>  </h4> 
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-  <h4>11. Perfect and Quasi-Perfect Codes Under the lp Metric </h4>  
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  <h4>IEEE Transcations on Information theory, Jul. 2017. <span><a href="2017-07 Perfect and Quasi-Perfect Codes Under the lp Metric (IT).pdf" target="_blank">PDF</a></span></h4>    
-</div>
-  </p>
-  <p class="item__secondary-actions"> 
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>10. Quantum MDS codes with large minimum distance </h4> 
-    <span>
-      (with
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
- Designs, Codes and Cryptography, 2017. <span><a href="2017-06 Quantum MDS codes with large minimum distance (DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>9. Some new results on permutation polynomials over finite fields </h4> 
-    <span>
-      (with
-	Jingxue Ma,
-	<a href="https://person.zju.edu.cn/tfeng" target="_blank">Tao Feng</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  Designs, Codes and Cryptography, 2017. <span><a href="2017-05 Some new results on permutation polynomials over finite fields(DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>8. Invertible binary matrix with maximum number of 2-by-2 invertible submatrices </h4> 
-    <span>
-      (with
-	Yiwei Zhang,
-	Xin Wang,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-Discrete Mathematics, Feb. 2017. <span><a href="2017-02 Invertible binary matrices with maximum number of 2-by-2 invertible submatrices (DM).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>7. Quantum Codes Derived From Certain Classes of Polynomials </h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>IEEE Transcations on Information theory, Nov. 2016. <span><a href="2016-11 Quantum Codes Derived From Certain Classes of Polynomials (IT).pdf" target="_blank">PDF</a></span> </h4> 
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>6. New Results on Codes Correcting Single Error of Limited Magnitude for Flash Memory </h4>  
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
- <h4>IEEE Transcations on Information theory, Aug. 2016. <span><a href="2016-08 New Results on Codes Correcting Single Error of Limited Magnitude for Flash Memory (IT).pdf" target="_blank">PDF</a></span></h4>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>5. On the existence of certain optimal self-dual codes with lengths between 74 and 116</h4>  
-    <span>
-      (with  
-	Jerod Michel,
-	<a href="https://person.zju.edu.cn/tfeng" target="_blank">Tao Feng</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  Electronic Journal of Combinatorics, Nov. 2015. <span><a href="2015-11 On the Existence of Certain Optimal Self-Dual Codes with Lengths Between 74 and 116 (EJC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
-<h4>4. Some New Classes of Quantum MDS Codes From Constacyclic Codes</h4>  
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
- <h4>IEEE Transcations on Information theory, Sep. 2015. <span><a href="2015-09 Some New Classes of Quantum MDS Codes From Constacyclic Codes (IT).pdf" target="_blank">PDF</a></span> </h4>  
-</div>
-  </p>
-<h2>Publications</h2>
-
-<div class="items">      
-        <article class="item">   
-<h4>35. Classification of semi-regular relative difference sets with gcd(λ, n) = 1 attaining Turyn’s bound</h4>
-		    <span>
-      (with  
-        Ka Hin Leung,
-	Bernhard Schmidt,
-    </span>
-  <p>
-  <div class="item__primary-actions">
-     Designs, Codes and Cryptography, 2024+
-</div>
-  </p>
-  <p class="item__secondary-actions">   
-  </p>
-</article>
-
-<div class="items">      
-        <article class="item">   
-<h4>34. A polynomial resultant approach to algebraic construction of extremal graphs</h4>
-    <span>
-      (with  
-	    <a href="https://drrichxu.github.io/Combinatorics/" target="_blank">Zixiang Xu</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-    <h4>Science China Mathematics, 2024+</h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-<div class="items">      
-        <article class="item">   
-<h4>33. A group ring approach to Fuglede's conjecture in cyclic groups</h4>
-  <p>
-  <div class="item__primary-actions">
-  <h4>Combinatorica, 2024+</h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-<div class="items">      
-        <article class="item">   
-<h4>32. On linear diameter perfect Lee codes with distance 6</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>Journal of Combinatorial Theory, Series A, 2024  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-<div class="items">      
-        <article class="item">   
-<h4>31. On lattice tilings of Z^n by limited magnitude error balls B(n,2,1,1)</h4>
-    <span>
-      (with  
-	  Yanlu Lian,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-    <h4>IEEE Transactions on Information Theory, 2023  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
- <div class="items">      
-        <article class="item">    
-<h4>30. New lower bounds for the Turan density of PG_{m}(q)</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Discrete Mathematics, 2023  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>29. Fuglede’s conjecture holds in Zp × Zpn</h4>
-  <p>
-  <div class="item__primary-actions">
-    <h4> SIAM Journal on Discrete Mathematics, 2023</h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>28. On the nonexistence of semi-regular relative difference sets</h4>
-		    <span>
-      (with  
-        Ka Hin Leung,
-	Bernhard Schmidt,
-    </span>
-  <p>
-  <div class="item__primary-actions">
- <h4>Journal of Combinatorial Theory, Series A, 2023 <span><a href="On the nonexistence of semi-regular relative difference sets（online）.pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">   
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>27. New constructions of Sidon spaces</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Journal of Algebraic Combinatorics, 2022+ <span><a href="New constructions of Sidon spaces（online）.pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>26. Some extremal results on hypergraph Turan problems</h4>
-    <span>
-      (with  
-	    <a href="https://drrichxu.github.io/Combinatorics/" target="_blank">Zixiang Xu</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>Science China Mathematics, 2022+ <span><a href="Some extremal results on hypergraph Turán problems (online).pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>25. On the codegree density of PGm(q)</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>SIAM Journal on Discrete Mathematics, 2021 <span><a href="On the Codegree Density of $PG_m(q)$ (SIDMA).pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>24. Color isomorphic even cycles and a related Ramsey problem</h4>
-    <span>
-      (with  
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-	    <a href="https://yifanjing.wordpress.com/" target="_blank">Yifan Jing</a>,
-	    <a href="https://drrichxu.github.io/Combinatorics/" target="_blank">Zixiang Xu</a>,
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>SIAM Journal on Discrete Mathematics, 2020 <span><a href="Color isomorphic even cycles and a related Ramsey problem (SIDMA).pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
-<h4>23. Some tight lower bounds for Turan problems via constructions of multi-hypergraphs</h4>
-    <span>
-      (with  
-	    <a href="https://drrichxu.github.io/Combinatorics/" target="_blank">Zixiang Xu</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  European Journal of Combinatorics, 2020 <span><a href="Some tight lower bounds for Turán problems via constructions of multi-hypergraphs (EUJC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
-<h4>22. Some New Results on Splitter Sets</h4>
-    <span>
-      (with  
-	    Zuo ye,
-	    <a href="http://staff.ustc.edu.cn/~drzhangx/" target="_blank">Xiande Zhang</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-    <h4>IEEE Transcations on Information theory, 2020 <span><a href="2020+   Some New Results on Splitter Sets (Online).pdf" target="_blank">PDF</a></span>  </h4>
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>21. New lower bounds for partial k-parallelisms</h4> 
-    <span>
-      (with  					 
-       Yue Zhou,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Journal of Combinatorial Designs, Jan. 2020. <span><a href="2020-01 New lower bounds for partial k-parallelism (JCD).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>20. On the nonexistence of lattice tilings of Z^n by Lee spheres</h4> 
-    <span>
-      (with  					 
-       Yue Zhou,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>Journal of combinatorial theory, series A, Jul. 2019. <span><a href="2019-07 On the nonexistence of lattice tilings of Z^n by Lee spheres (JCTA).pdf" target="_blank">PDF</a></span></h4>   
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>19. Improved lower bounds on the degree-diameter problem</h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  Journal of Algebraic Combinatorics, Mar. 2019. <span><a href="2019-03 Improved lower bounds on the degree–diameter problem (JACO).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>18. Constructions of optimal Ferrers diagram rank metric codes</h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Designs, Codes and Cryptography, 2019. <span><a href="2019-01 Constructions of optimal Ferrers diagram rank metric codes (DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>17. On (mn,n,mn,m) relative difference sets with gcd(m,n)=1</h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-    Journal of Algebraic Combinatorics, Dec. 2018. <span><a href="2018-12 On (mn, n, mn, m) relative difference sets with   gcd(m,n)=1 (JACO).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>16. On the Nonexistence of Perfect Splitter Sets</h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>IEEE Transcations on Information theory, Oct. 2018. <span><a href="2018-10 On the Nonexistence of Perfect Splitter Sets (IT).pdf" target="_blank">PDF</a></span>  </h4> 
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>15. New Constructions of MDS Symbol-Pair Codes</h4> 
-    <span>
-      (with
-	Baokun Ding,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-	Jun Zhang,
-	Yiwei Zhang,
-    </span>
-  <p>
-  <div class="item__primary-actions">
-Designs, Codes and Cryptography, 2018. <span><a href="2018-04 New constructions of MDS symbol-pair codes (DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-   
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>14. Combinatorial constructions of packings in Grassmannian spaces</h4> 
-    <span>
-      (with   
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   Designs, Codes and Cryptography, 2018. <span><a href="2018-04 Combinatorial constructions of packings in Grassmannian spaces (DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>13. Maximum Distance Separable Codes for b-Symbol Read Channels</h4> 
-    <span>
-      (with  
-	Baokun Ding,   
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  Finite Fields and Their Applications, Jan. 2018. <span><a href="2018-01 Maximum distance separable codes for b-symbol read channels （FFA）.pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>12. Splitter Sets and k -Radius Sequences</h4> 
-    <span>
-      (with  
-	<a href="http://staff.ustc.edu.cn/~drzhangx/" target="_blank">Xiande Zhang</a>,    
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>IEEE Transcations on Information theory, Dec. 2017. <span><a href="2017-12 Splitter Sets and k -Radius Sequences (IT).pdf" target="_blank">PDF</a></span>  </h4> 
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-  <h4>11. Perfect and Quasi-Perfect Codes Under the lp Metric </h4>  
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  <h4>IEEE Transcations on Information theory, Jul. 2017. <span><a href="2017-07 Perfect and Quasi-Perfect Codes Under the lp Metric (IT).pdf" target="_blank">PDF</a></span></h4>    
-</div>
-  </p>
-  <p class="item__secondary-actions"> 
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>10. Quantum MDS codes with large minimum distance </h4> 
-    <span>
-      (with
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
- Designs, Codes and Cryptography, 2017. <span><a href="2017-06 Quantum MDS codes with large minimum distance (DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>9. Some new results on permutation polynomials over finite fields </h4> 
-    <span>
-      (with
-	Jingxue Ma,
-	<a href="https://person.zju.edu.cn/tfeng" target="_blank">Tao Feng</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  Designs, Codes and Cryptography, 2017. <span><a href="2017-05 Some new results on permutation polynomials over finite fields(DCC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
- <h4>8. Invertible binary matrix with maximum number of 2-by-2 invertible submatrices </h4> 
-    <span>
-      (with
-	Yiwei Zhang,
-	Xin Wang,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-Discrete Mathematics, Feb. 2017. <span><a href="2017-02 Invertible binary matrices with maximum number of 2-by-2 invertible submatrices (DM).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
- <h4>7. Quantum Codes Derived From Certain Classes of Polynomials </h4> 
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-   <h4>IEEE Transcations on Information theory, Nov. 2016. <span><a href="2016-11 Quantum Codes Derived From Certain Classes of Polynomials (IT).pdf" target="_blank">PDF</a></span> </h4> 
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>6. New Results on Codes Correcting Single Error of Limited Magnitude for Flash Memory </h4>  
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
- <h4>IEEE Transcations on Information theory, Aug. 2016. <span><a href="2016-08 New Results on Codes Correcting Single Error of Limited Magnitude for Flash Memory (IT).pdf" target="_blank">PDF</a></span></h4>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-<div class="items">      
-        <article class="item">   
-<h4>5. On the existence of certain optimal self-dual codes with lengths between 74 and 116</h4>  
-    <span>
-      (with  
-	Jerod Michel,
-	<a href="https://person.zju.edu.cn/tfeng" target="_blank">Tao Feng</a>,
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
-  Electronic Journal of Combinatorics, Nov. 2015. <span><a href="2015-11 On the Existence of Certain Optimal Self-Dual Codes with Lengths Between 74 and 116 (EJC).pdf" target="_blank">PDF</a></span>  
-</div>
-  </p>
-  <p class="item__secondary-actions">
-  </p>
-</article>
-
-
-
-<div class="items">      
-        <article class="item">   
-<h4>4. Some New Classes of Quantum MDS Codes From Constacyclic Codes</h4>  
-    <span>
-      (with  					 
-        <a href="http://math.cnu.edu.cn/szdw/qtjs/161049.htm" target="_blank">Gennian Ge</a>,    
-    </span>
-  <p>
-  <div class="item__primary-actions">
- <h4>IEEE Transcations on Information theory, Sep. 2015. <span><a href="2015-09 Some New Classes of Quantum MDS Codes From Constacyclic Codes (IT).pdf" target="_blank">PDF</a></span> </h4>  
 </div>
-  </p>
-
-		
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-	
-    <div class="content" id="team">
-        <h2>Team</h2>
-        <p>Meet the members of our research team:</p>
-        <ul>
-            <li>Dr. John Doe - Specialist in computational mathematics and AI.</li>
-            <li>Dr. Jane Smith - Focus on data analysis and network theory.</li>
-        </ul>
-    </div>
-
-    <div class="content" id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; Combinatorics, Information Theory & Related Topics Seminar @ Xidian University </p>
-    </footer>
 
-    <!-- JavaScript for toggling sections and updating title -->
-    <script>
-        // Select all navigation links and content sections
-        const navLinks = document.querySelectorAll('.navbar a');
-        const sections = document.querySelectorAll('.content');
+<!-- JavaScript for Accordion -->
+<script>
+    function toggleAccordion(header) {
+        const content = header.nextElementSibling;
+        const allContents = document.querySelectorAll('.accordion-content');
 
-        // Function to update the page title
-        const updateTitle = (sectionId) => {
-            const titleElement = document.querySelector('title');
-            if (sectionId === 'about') {
-                titleElement.textContent = 'Combinatorics, Information Theory & Related Topics Seminar';
-            } else {
-                titleElement.textContent = 'Dynamic Section Page';
+        // Close other accordion items
+        allContents.forEach(section => {
+            if (section !== content) {
+                section.style.display = 'none';
             }
-        };
-
-        // Add click event listeners to navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', event => {
-                event.preventDefault(); // Prevent default anchor behavior
-
-                // Remove active class from all links and sections
-                navLinks.forEach(nav => nav.classList.remove('active'));
-                sections.forEach(section => section.classList.remove('active'));
-
-                // Add active class to the clicked link
-                link.classList.add('active');
-
-                // Show the corresponding section
-                const targetSection = document.getElementById(link.dataset.section);
-                targetSection.classList.add('active');
-
-                // Update the page title
-                updateTitle(link.dataset.section);
-            });
         });
 
-        // Show the first section by default
-        document.getElementById('about').classList.add('active');
-        navLinks[0].classList.add('active');
-        updateTitle('about');
-    </script>
+        // Toggle current section
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    }
+    
+</script>
 
+    
+<!-- CSS Styles for Accordion -->
+<style>
+/* Past Seminars Accordion Styles */
+
+/* Past Seminars Accordion Styles */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align content */
+}
+
+.accordion-item {
+    width: 80%; /* Set accordion sections to 80% width */
+    margin-bottom: 15px; /* Increase spacing between items */
+    background-color: #f9f9f9; /* Light gray for entire item */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Smooth edges */
+    overflow: hidden; /* Ensure content stays within bounds */
+}
+
+.accordion-header {
+    background-color: #e0e0e0; /* Slightly darker gray for header background */
+    padding: 20px; /* Increase padding for more space */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px solid #d3d3d3; /* Divider line below header */
+    text-align: left; /* Align header text to the left */
+}
+
+.accordion-header:hover {
+    background-color: #cccccc; /* Slightly darker gray on hover */
+}
+
+.accordion-content {
+    padding: 20px; /* Increase padding for more vertical spacing */
+    display: none; /* Initially hidden */
+}
+
+.accordion-content p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.accordion-content hr {
+    border: none;
+    border-top: 1px solid #d3d3d3; /* Subtle divider */
+    margin: 15px 0;
+}
+
+
+</style>
+
+
+
+
+
+    
+    <!-- Contact Section -->
+    <div class="content" id="contact">
+        <div class="header">
+            <h1>Contact</h1>
+            <p>For inquiries, please reach out to us at: seminar@university.edu</p>
+        </div>
+    </div>
+
+    
+
+    <!-- JavaScript for Navigation -->
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+
+            const navLinks = document.querySelectorAll('.navbar a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.navbar a[href="#${id}"]`).classList.add('active');
+        }
+    </script>
 </body>
 </html>
